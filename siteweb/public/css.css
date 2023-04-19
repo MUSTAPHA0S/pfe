@@ -1,0 +1,48 @@
+.background-vid {
+    width: 100%;
+    height: 100%;
+}
+
+.text-box {
+    margin-top: 50px;
+    margin-left: 10px;
+    font-weight: bold;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 80%;
+    width: 50%;
+    color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 45px;
+}
+.overlay {
+    position: absolute;
+    margin-top: 0px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 112.5%;
+    background: rgba(121, 164, 255, 0.252);
+
+}
+
+@media screen and (min-width:777px){
+    .nav-link {
+      padding:18px 0;
+      min-width:120px;
+    }
+    .navbar {
+      padding: 0
+    }
+  }
+
+
+  .question{
+    margin-left: 30%;
+    color: rgb(255, 2, 2);
+    margin-top: 5vh;
+    padding-bottom: 4vh;
+  }
