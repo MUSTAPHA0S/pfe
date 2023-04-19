@@ -17,7 +17,7 @@
 
 <body>
     @include('layouts.sidebare')
-    <div style="padding: 50px 1600px;">
+    <div style="padding: 50px 160px;">
         @include('profile')
 
     </div>
