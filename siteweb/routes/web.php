@@ -37,7 +37,7 @@ Route::get('/appointments', function () {
     return view('appointments');
 });
 Route::get('/profile', function () {
-    return view('appointments', ['user' => Auth::user()]);
+    return view('home', ['user' => Auth::user()]);
 });
 
 Route::get('/appointments', 'App\Http\Controllers\AppointmentController@index')->name('appointments.index');
