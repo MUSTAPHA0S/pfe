@@ -4,17 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use Illuminate\View\View;
- 
+use Illuminate\Support\Facades\Auth;
+
 class UserController extends Controller
 {
     /**
      * Show the profile for a given user.
      */
-    public function show(string $id): View
+    public function show(): View
     {
-        $user = Auth::user();
         return view('Profile', [
-            'User' => User::findOrFail($id)
+            'user' => Auth::user()
         ]);
     }
 }
