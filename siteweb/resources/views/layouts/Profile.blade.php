@@ -5,11 +5,13 @@
         <th>prenom</th>
     </tr>
 
+    @if($user)
     <tr>
         <td>{{ $user->id }}</td>
         <td>{{ $user->nom }}</td>
         <td>{{ $user->prenom }}</td>
     </tr>
+    @endif
 </table>
 @if(Auth::check())
 <p>Nom : {{ Auth::user()->nom }} !</p>
