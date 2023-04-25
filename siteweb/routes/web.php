@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
-
+use App\Http\Controllers\AdmineController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -48,8 +48,4 @@ Route::get('/quiz', function () {
 // });
 
 
-Route::resource('admine', AdmineController::class)->except([
-    'create','edit','update'
-]);
-
-route::put('admine','AdmineController@update')->name('admine.update');
+Route::resource('admine', AdmineController::class);

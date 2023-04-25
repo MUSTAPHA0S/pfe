@@ -12,8 +12,8 @@ class AdmineController extends Controller
      */
     public function index()
     {
-        $donneurs = user::where('isAdmin','!=',true)->get();
-        return view('admine',['admine' => admine::findorfail($id)]);
+        $donneurs = user::where('isAdmin', '!=', true)->get();
+        return view('admine',['donneurs' => $donneurs]);
     }
 
 

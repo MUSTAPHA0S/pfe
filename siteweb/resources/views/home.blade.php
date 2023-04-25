@@ -25,7 +25,6 @@
     @include('layouts.sidebare')
     <div class="table mx-auto pt-4" style="width: 40vw">
         @include('profile')
-
     </div>
 </body>
 <script>
