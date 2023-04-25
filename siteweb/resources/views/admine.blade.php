@@ -24,16 +24,18 @@
 <body>
     @include('layouts.sidebare')
     <div class="table mx-auto pt-4" style="width: 40vw">
-        @foreach ($donneurs as $donneur)
+        @if (isset($donneurs))
+        @foreach($donneurs as $donneur)
         <tr>
-            <td>{{donneur->nom}}</td>
-            <td> {{donneur->prenom}}</td>
-            <td> {{donneur->dateNaissance}}</td>
-            <td> {{donneur->telephone}}</td>
-            <td> {{donneur->email}}</td>
-            <td> {{donneur->dateNaissance}}</td>
+            <td>{{$donneur->nom}}</td>
+            <td> {{$donneur->prenom}}</td>
+            <td> {{$donneur->dateNaissance}}</td>
+            <td> {{$donneur->telephone}}</td>
+            <td> {{$donneur->email}}</td>
+            <td> {{$donneur->dateNaissance}}</td>
         </tr>
         @endforeach
+        @endif
     </div>
 </body>
 <script>
