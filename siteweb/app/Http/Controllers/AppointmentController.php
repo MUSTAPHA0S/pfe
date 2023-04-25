@@ -12,17 +12,16 @@ class AppointmentController extends Controller
     {
         // Afficher la liste des rendez-vous
         $appointments = Appointment::all();
-        return view('appointments', [
-            'appointments' => $appointments,
-            'villes' => file_get_contents(public_path('json/Villes.json')),
-            'regions' => file_get_contents(public_path('json/Regions.json')),
-        ]);
+        return view('appointments', ['appointments' => $appointments]);
     }
 
     public function create()
     {
         // Afficher le formulaire de réservation
-        return view('appointments.create');
+        return view('appointments_create', [
+            'villes' => file_get_contents(public_path('json/Villes.json')),
+            'regions' => file_get_contents(public_path('json/Regions.json')),
+        ]);
     }
 
     public function store(Request $request)

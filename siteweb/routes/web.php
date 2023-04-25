@@ -34,6 +34,7 @@ Route::get('/important', function () {
     return view('important');
 });
 Route::get('/appointments', [App\Http\Controllers\AppointmentController::class, 'index'])->name('appointments.index');
+Route::get('/appointments/new', [App\Http\Controllers\AppointmentController::class, 'create'])->name('appointments.create');
 Route::post('/appointments', [App\Http\Controllers\AppointmentController::class, 'store'])->name('appointments.store');
 Route::put('/appointments/{id}', [App\Http\Controllers\AppointmentController::class, 'update'])->name('appointments.update');
 Route::delete('/appointments/{id}', [App\Http\Controllers\AppointmentController::class, 'delete'])->name('appointments.delete');
