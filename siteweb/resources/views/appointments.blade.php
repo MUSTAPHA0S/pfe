@@ -25,6 +25,27 @@
                 <label for="date" class="form-label">Date du rendez-vous</label>
                 <input type="date" name="date" id="date" class="form-control" required>
             </div>
+
+            <div class="mb-3">
+                <label for="date" class="form-label">Ville</label>
+                <select class="form-control">
+                    <option value=""></option>
+                    @foreach(json_decode($villes) as $ville)
+                    <option value="<? $ville->ville ?>">{{ $ville->ville }}</option>
+                    @endforeach
+                </select>
+            </div>
+
+            <div class="mb-3">
+                <label for="date" class="form-label">Region</label>
+                <select class="form-control">
+                    <option value=""></option>
+                    @foreach(json_decode($regions) as $region)
+                        <option value="<? $region->region ?>">{{ $region->region }}</option>
+                    @endforeach
+                </select>
+            </div>
+
             <button type="submit">Enregistrer</button>
 </body>
 

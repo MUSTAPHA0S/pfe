@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Appointment;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class AppointmentController extends Controller
 {
@@ -11,7 +12,11 @@ class AppointmentController extends Controller
     {
         // Afficher la liste des rendez-vous
         $appointments = Appointment::all();
-        return view('appointments.index', compact('appointments'));
+        return view('appointments', [
+            'appointments' => $appointments,
+            'villes' => file_get_contents(public_path('json/Villes.json')),
+            'regions' => file_get_contents(public_path('json/Regions.json')),
+        ]);
     }
 
     public function create()

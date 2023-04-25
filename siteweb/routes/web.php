@@ -33,9 +33,9 @@ Route::get('/oudonner', function () {
 Route::get('/important', function () {
     return view('important');
 });
-Route::get('/appointments', function () {
-    return view('appointments');
-});
+Route::get('/appointments', [App\Http\Controllers\AppointmentController::class, 'index']);
+Route::post('/appointments', [App\Http\Controllers\AppointmentController::class, 'store'])->name('appointments.store');
+
 Route::get('/profile', function () {
     return view('home', ['user' => Auth::user()]);
 });
