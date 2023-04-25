@@ -33,8 +33,10 @@ Route::get('/oudonner', function () {
 Route::get('/important', function () {
     return view('important');
 });
-Route::get('/appointments', [App\Http\Controllers\AppointmentController::class, 'index']);
+Route::get('/appointments', [App\Http\Controllers\AppointmentController::class, 'index'])->name('appointments.index');
 Route::post('/appointments', [App\Http\Controllers\AppointmentController::class, 'store'])->name('appointments.store');
+Route::put('/appointments/{id}', [App\Http\Controllers\AppointmentController::class, 'update'])->name('appointments.update');
+Route::delete('/appointments/{id}', [App\Http\Controllers\AppointmentController::class, 'delete'])->name('appointments.delete');
 
 Route::get('/profile', function () {
     return view('home', ['user' => Auth::user()]);
