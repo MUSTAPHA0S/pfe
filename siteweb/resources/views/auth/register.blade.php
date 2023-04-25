@@ -37,6 +37,69 @@
                                 @enderror
                             </div>
                         </div>
+                        <div class="row mb-3">
+                            <label for="sexe" class="col-md-4 col-form-label text-md-end">{{ __('sexe') }}</label>
+
+                            <div class="col-md-6">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="sexe"  value="Homme">
+                                    <label class="form-check-label" for="inlineRadio1">Homme</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="sexe"  value="femme">
+                                    <label class="form-check-label" for="inlineRadio2">Femme</label>
+                                </div>
+                                @error('sexe')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <label for="groupage" class="col-md-4 col-form-label text-md-end">{{ __('groupage sanguin') }}</label>
+
+                            <div class="col-md-6">
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="groupage"  value="A+">
+                                    <label class="form-check-label" for="inlineRadio1">A+</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="groupage"  value="A-">
+                                    <label class="form-check-label" for="inlineRadio2">A-</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="groupage"  value="B+">
+                                    <label class="form-check-label" for="inlineRadio1">B+</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="groupage"  value="B-">
+                                    <label class="form-check-label" for="inlineRadio2">B-</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="groupage"  value="AB+">
+                                    <label class="form-check-label" for="inlineRadio1">AB+</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="groupage"  value="AB-">
+                                    <label class="form-check-label" for="inlineRadio2">AB-</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="groupage"  value="O+">
+                                    <label class="form-check-label" for="inlineRadio1">O+</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input class="form-check-input" type="radio" name="groupage"  value="O-">
+                                    <label class="form-check-label" for="inlineRadio2">O-</label>
+                                </div>
+                                @error('groupage')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
 
                         <div class="row mb-3">
                             <label for="telephone" class="col-md-4 col-form-label text-md-end">{{ __('Telephone') }}</label>

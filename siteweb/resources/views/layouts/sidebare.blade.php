@@ -18,14 +18,14 @@
 
             <ul class="menu-links">
                 <li class="nav-link">
-                    <a href="/">
+                    <a href="/siteweb/public">
                         <i class='bx bx-home-alt icon'></i>
                         <span class="text nav-text">Acceuill</span>
                     </a>
                 </li>
 
                 <li class="nav-link">
-                    <a href="/profile">
+                    <a href="profile">
                         <i class='bx  icon'></i>
                         <span class="text nav-text">Infos personnel</span>
                     </a>
@@ -36,13 +36,6 @@
                         <i class='bx  icon'></i>
                         <span class="text nav-text">Historique
                         </span>
-                    </a>
-                </li>
-
-                <li class="nav-link">
-                    <a href="#">
-                        <i class='bx  icon'></i>
-                        <span class="text nav-text">resultats</span>
                     </a>
                 </li>
 

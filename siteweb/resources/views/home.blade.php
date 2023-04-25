@@ -13,11 +13,17 @@
     <!----===== Boxicons CSS ===== -->
     <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
     <!--<title>Dashboard Sidebar Menu</title>-->
+    <style>
+        .table{
+            height: 20vw;
+            margin-top: 100px;
+        }
+    </style>
 </head>
 
 <body>
     @include('layouts.sidebare')
-    <div style="padding: 50px 160px;">
+    <div class="table mx-auto pt-4" style="width: 40vw">
         @include('profile')
 
     </div>
@@ -45,7 +51,6 @@
             modeText.innerText = "Light mode";
         } else {
             modeText.innerText = "Dark mode";
-
         }
     });
 </script>

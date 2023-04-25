@@ -40,6 +40,16 @@ Route::get('/profile', function () {
     return view('home', ['user' => Auth::user()]);
 });
 
-Route::get('/appointments', 'App\Http\Controllers\AppointmentController@index')->name('appointments.index');
-Route::get('/appointments/create', 'AppointmentController@create')->name('appointments.create');
-Route::post('/appointments', 'AppointmentController@store')->name('appointments.store');
+Route::get('/quiz', function () {
+    return view('quiz');
+});
+// Route::get('/admine', function () {
+//     return view('admine');
+// });
+
+
+Route::resource('admine', AdmineController::class)->except([
+    'create','edit','update'
+]);
+
+route::put('admine','AdmineController@update')->name('admine.update');

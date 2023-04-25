@@ -10,19 +10,19 @@
                 <li class="nav-item">
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/pourquoi">Pourquoi donner?</a>
+                    <a class="nav-link" href="pourquoi">Pourquoi donner?</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/quipeutdonner">Qui peut donner?</a>
+                    <a class="nav-link" href="quipeutdonner">Qui peut donner?</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/oudonner">Oú donner?</a>
+                    <a class="nav-link" href="oudonner">Oú donner?</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/important">Important!</a>
+                    <a class="nav-link" href="important">Important!</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/profile">Profile</a>
+                    <a class="nav-link" href="profile">Profile</a>
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto">

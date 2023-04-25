@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('nom');
             $table->string('prenom')->nullable();
+            $table->string('sexe');
+            $table->string('groupage')->nullable();
             $table->boolean('isAdmin')->default(false);
             $table->string('telephone')->nullable();
             $table->date('dateNaissance')->nullable();
