@@ -821,6 +821,22 @@
                 padding: 2rem
             }
         }
+        .text-boxx {
+    margin-top: 50px;
+    margin-left: 10px;
+    font-weight: bold;
+    font-size: 25px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 80%;
+    width: 50%;
+    color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 45px;
+}
     </style>
 </head>
 
@@ -833,7 +849,7 @@
     </video>
     {{-- <div class="overlay"></div> --}}
 
-    <p class="text-box"> Le don du sang est un acte qui peut sauver des vies. Chaque année, des milliers de personnes ont besoin d’une transfusion sanguine pour survivre, que ce soit suite à une maladie, un accident ou une intervention chirurgicale. Si vous êtes en bonne santé et répondez aux critères médicaux, prenez le temps de donner votre sang, c’est un cadeau inestimable que vous pouvez offrir à ceux qui ont besoin. Ensemble, nous pouvons faire la différence et sauver des vies.
+    <p class="text-boxx"> Le don du sang est un acte qui peut sauver des vies. Chaque année, des milliers de personnes ont besoin d’une transfusion sanguine pour survivre, que ce soit suite à une maladie, un accident ou une intervention chirurgicale. Si vous êtes en bonne santé et répondez aux critères médicaux, prenez le temps de donner votre sang, c’est un cadeau inestimable que vous pouvez offrir à ceux qui ont besoin. Ensemble, nous pouvons faire la différence et sauver des vies.
     </p>
     <div class="row">
         <div class="fw-bolder col col-sm-12 col-12 col-lg-6" style="font-size: 1.2vw">

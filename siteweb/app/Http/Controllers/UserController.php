@@ -13,7 +13,7 @@ class UserController extends Controller
      */
     public function show(): View
     {
-        return view('Profile', [
+        return view('home', [
             'user' => Auth::user()
         ]);
     }

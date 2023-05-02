@@ -39,9 +39,10 @@ Route::post('/appointments', [App\Http\Controllers\AppointmentController::class,
 Route::put('/appointments/{id}', [App\Http\Controllers\AppointmentController::class, 'update'])->name('appointments.update');
 Route::delete('/appointments/{id}', [App\Http\Controllers\AppointmentController::class, 'delete'])->name('appointments.delete');
 
+
 Route::get('/profile', function () {
     return view('home', ['user' => Auth::user()]);
-});
+}); 
 
 Route::get('/quiz', function () {
     return view('quiz');
@@ -51,4 +52,5 @@ Route::get('/quiz', function () {
 // });
 
 
-Route::resource('admine', AdmineController::class);
+Route::resource('admine', AdmineController::class)->middleware(['auth','IsAdmin']);
+Route::put('admine', [App\Http\Controllers\AdmineController::class, 'update'])->name('admine.update');

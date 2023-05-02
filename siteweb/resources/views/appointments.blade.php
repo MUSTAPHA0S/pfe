@@ -13,8 +13,11 @@
 
     @section('content')
     <div class="container">
-        <h1>Réserver un rendez-vous</h1>
-        <a href="{{ route('appointments.create') }}">Ajouter rendez-vous</a>
+        <h1 class="position-absolute top-0 start-50 translate-middle" style="margin-top: 10vw">Réserver un rendez-vous</h1>
+        <div class="position-absolute top-50 start-50 translate-middle">
+            <a href="{{ route('appointments.create') }}"><button type="button" class="btn btn-primary" >Ajouter rendez-vous</button> </a>
+        </div>
+        
         
     </div>
 </body>

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Rendez-vous</title>
 </head>
 
 <body>
@@ -13,12 +13,13 @@
 
     @section('content')
     <div class="container">
-        <h1>Réserver un rendez-vous</h1>
+        
+        <h1 style="margin-left: 25vw">Réserver un rendez-vous</h1>
         <form method="post" action="{{ route('appointments.store') }}">
             @csrf
             <div class="mb-3">
-                <label for="name" class="form-label">Nom du client</label>
-                <input type="text" name="name" id="name" class="form-control" required>
+                <label for="nom" class="form-label">Nom du donneur</label>
+                <input type="text" name="nom" id="nom" class="form-control" required>
             </div>
             <!-- Ajouter d'autres champs de formulaire selon vos besoins -->
             <div class="mb-3">
@@ -45,8 +46,7 @@
                     @endforeach
                 </select>
             </div>
-
-            <button type="submit">Enregistrer</button>
+            <button type="submit" class="btn btn-secondary">Enregistrer</button>
         </form>
 </body>
 

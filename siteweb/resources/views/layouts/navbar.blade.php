@@ -22,7 +22,7 @@
                     <a class="nav-link" href="important">Important!</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="profile">Profile</a>
+                    <a class="nav-link" href="home">Profile</a>
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto">
