@@ -42,7 +42,7 @@ class AdmineController extends Controller
 
         $donneurs->save();
         // return redirect('/admine')->back()->with('success', 'Le donneur a été bien ajouté !!');
-        return redirect()->route('Admine.create')->with('success', 'User created successfully!');
+        return redirect()->with('success', 'User created successfully!');
     }
 
     /**

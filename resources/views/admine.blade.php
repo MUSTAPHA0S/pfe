@@ -280,7 +280,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-          <button type="button" href="/store/{{$donneur->id}}" class="btn btn-primary">Ajouter donneur</button>
+          <button type="submit" href="/store/{{$donneur->id}}" class="btn btn-primary">Ajouter donneur</button>
         </div>
       </div>
     </div>
