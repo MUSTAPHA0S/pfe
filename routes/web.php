@@ -52,5 +52,14 @@ Route::get('/quiz', function () {
 // });
 
 
+
 Route::resource('admine', AdmineController::class)->middleware(['auth','IsAdmin']);
-Route::put('admine', [App\Http\Controllers\AdmineController::class, 'update'])->name('admine.update');
+
+
+Route::get('/Admine/new', [App\Http\Controllers\AdmineController::class, 'create'])->name('Admine.create');
+Route::put('/Admine/{id}', [App\Http\Controllers\AdmineController::class, 'update'])->name('Admines.update');
+Route::delete('/Admine/{id}', [App\Http\Controllers\AdmineController::class, 'delete'])->name('Admines.delete');
+Route::post('/Admine', [App\Http\Controllers\AdmineController::class, 'store'])->name('Admine.store');
+
+
+

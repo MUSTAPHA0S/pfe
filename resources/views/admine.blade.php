@@ -68,7 +68,7 @@
 
 <div class="position-absolute top-50 start-50 translate-middle">
     <h1  style="margin-top:10px;margin-bottom: 30px;margin-left: 10vw">Gestion des donneurs</h1>
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="margin-left: 20vw">
+    <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="margin-left: 20vw">
         <i class="material-icons align-top "></i>
         Ajouter
       </button>
@@ -99,15 +99,21 @@
               <td>{{ $donneur->telephone }}</td>
               <td>{{ $donneur->email }}</td>
               <td class="text-center">
-                  <a href="javascript:void(0)" onclick="editStudent({{ $donneur->id }})">
+                  <a href="javascript:void(0)" onclick="editdonneur({{ $donneur->id }})">
                       <img src="edit.png" alt="edit" width="25">
                   </a>
               </td>   
-              {{-- <td class="text-center">
-                  <a href="javascript:void(0)" onclick="deleteStudent({{ $donneur->id }})">
+              
+
+
+              <td class="text-center">
+                  <a href="javascript:void(0)" onclick="deletedonneur({{ $donneur->id }})">
                       <img src="delete.png" alt="delete" width="25">
                   </a>
-              </td> --}}
+              </td>
+
+
+
               <td class="text-center">
                 <a href="######">
                     <img src="delete.png" alt="delete" width="25">
@@ -119,7 +125,8 @@
     </table>
 
 </div>
-  <!-- Modal -->
+                                                <!-- Modal -->
+
   <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -134,7 +141,7 @@
                         
             
                             <div class="card-body">
-                                <form method="POST" action="{{ route('register') }}">
+                                <form method="POST" action="{{ route('admine.store') }}">
                                     @csrf
             
                                     <div class="row mb-3">
@@ -270,16 +277,17 @@
                                 </form>
                             </div>
                     </div>
-                
-            
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-          <button type="button" class="btn btn-primary">Ajouter donneur</button>
+          <button type="button" href="/store/{{$donneur->id}}" class="btn btn-primary">Ajouter donneur</button>
         </div>
       </div>
     </div>
   </div>
+
+  
+
     
 
     
@@ -310,21 +318,21 @@
         }
     });
 
-    function editdonneur(id){
+    <script>
+  function editdonneur(id){
     $('#editdonneurModal').modal('toggle');
-    $.get('/admin/' + id, function(user){
-      $('#nom').val(user.nom);
-      $('#prenom').val(user.prenom);
-      $('#telephone').val(user.telephone);
-      $('#dateNaissance').val(user.dateNaissance);
-      $('#email').val(user.email);
-      $('#id').val(user.id);
+    $.get('/admine/' + id, function(donneur){
+      $('#nom').val(donneur.nom);
+      $('#prenom').val(donneur.prenom);
+      $('#telephone').val(donneur.telephone);
+      $('#dateNaissance').val(donneur.dateNaissance);
+      $('#email').val(donneur.email);
+      $('#id').val(donneur.id);
     });
   }
   function deletedonneur(id){
     $('#deletedonneurModal').modal('toggle');
-    $('#deletedonneurForm').attr('action', '/admin/' + id);
+    $('#deletedonneurForm').attr('action', '/admine/' + id);
   }
 </script>
-
 </html>
