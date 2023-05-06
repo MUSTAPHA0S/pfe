@@ -18,39 +18,47 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+
 Auth::routes();
+Route::middleware(['auth'])->group(function () {
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/pourquoi', function () {
-    return view('pourquoi');
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
 });
-Route::get('/quipeutdonner', function () {
-    return view('quipeut');
+
+Route::middleware(['auth','role:user'])->group(function () {
+
+    Route::get('/pourquoi', function () {
+        return view('pourquoi');
+    });
+    Route::get('/quipeutdonner', function () {
+        return view('quipeut');
+    });
+    Route::get('/oudonner', function () {
+        return view('ou');
+    });
+    Route::get('/important', function () {
+        return view('important');
+    });
+    Route::get('/appointments', [App\Http\Controllers\AppointmentController::class, 'index'])->name('appointments.index');
+    Route::get('/appointments/new', [App\Http\Controllers\AppointmentController::class, 'create'])->name('appointments.create');
+    Route::post('/appointments', [App\Http\Controllers\AppointmentController::class, 'store'])->name('appointments.store');
+    Route::put('/appointments/{id}', [App\Http\Controllers\AppointmentController::class, 'update'])->name('appointments.update');
+    Route::delete('/appointments/{id}', [App\Http\Controllers\AppointmentController::class, 'delete'])->name('appointments.delete');
+
+    Route::get('/quiz', function () {
+        return view('quiz');
+    });
+
+    Route::get('/profile', function () {
+        return view('home', ['user' => Auth::user()]);
+    }); 
+    
 });
-Route::get('/oudonner', function () {
-    return view('ou');
+
+
+
+Route::middleware(['auth','role:admin'])->group(function () {
+    Route::resource('admine', AdmineController::class);
+    Route::put('admine', [App\Http\Controllers\AdmineController::class, 'update'])->name('admine.update');
 });
-Route::get('/important', function () {
-    return view('important');
-});
-Route::get('/appointments', [App\Http\Controllers\AppointmentController::class, 'index'])->name('appointments.index');
-Route::get('/appointments/new', [App\Http\Controllers\AppointmentController::class, 'create'])->name('appointments.create');
-Route::post('/appointments', [App\Http\Controllers\AppointmentController::class, 'store'])->name('appointments.store');
-Route::put('/appointments/{id}', [App\Http\Controllers\AppointmentController::class, 'update'])->name('appointments.update');
-Route::delete('/appointments/{id}', [App\Http\Controllers\AppointmentController::class, 'delete'])->name('appointments.delete');
-
-
-Route::get('/profile', function () {
-    return view('home', ['user' => Auth::user()]);
-}); 
-
-Route::get('/quiz', function () {
-    return view('quiz');
-});
-// Route::get('/admine', function () {
-//     return view('admine');
-// });
-
-
-Route::resource('admine', AdmineController::class)->middleware(['auth','IsAdmin']);
-Route::put('admine', [App\Http\Controllers\AdmineController::class, 'update'])->name('admine.update');

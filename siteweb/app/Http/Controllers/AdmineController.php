@@ -13,7 +13,7 @@ class AdmineController extends Controller
      */
     public function index()
     {
-        $donneurs = user::where('isAdmin', '!=', true)->get();
+        $donneurs = User::where('isAdmin', '!=', true)->get();
         return view('admine',['donneurs' => $donneurs]);
     }
 
@@ -42,6 +42,9 @@ class AdmineController extends Controller
         $user->password = Hash::make($request->nom . '_2023');
 
         $user->save();
+
+        $user->assignRole("user");
+        
         return redirect()->back()->with('success', 'Le donneur a été bien ajouté !!');
     }
 
