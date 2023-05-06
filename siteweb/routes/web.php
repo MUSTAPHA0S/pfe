@@ -29,6 +29,7 @@ Route::middleware(['auth','role:user'])->group(function () {
     Route::get('/pourquoi', function () {
         return view('pourquoi');
     });
+    
     Route::get('/quipeutdonner', function () {
         return view('quipeut');
     });
