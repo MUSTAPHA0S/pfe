@@ -53,7 +53,11 @@ Route::middleware(['auth','role:user'])->group(function () {
         return view('home', ['user' => Auth::user()]);
     }); 
     
+
+    // 
 });
+
+
 
 
 
