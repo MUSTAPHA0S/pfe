@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('prenom')->nullable();
             $table->string('sexe')->nullable();
             $table->string('groupage')->nullable();
-            $table->boolean('isAdmin')->default(false);
             $table->string('telephone')->nullable();
             $table->date('dateNaissance')->nullable();
             $table->string('email')->unique();

@@ -13,7 +13,7 @@ class AdmineController extends Controller
      */
     public function index()
     {
-        $donneurs = user::where('isAdmin', '!=', true)->get();
+        $donneurs = User::where('isAdmin', '!=', true)->get();
         return view('admine',['donneurs' => $donneurs]);
     }
 
@@ -30,19 +30,22 @@ class AdmineController extends Controller
             'dateNaissance' => ['required', 'date'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
         ]);
-        $donneurs = new User();
-        $donneurs->nom = $request->nom;
-        $donneurs->prenom = $request->prenom;
-        $donneurs->sexe = $request->sexe;
-        $donneurs->groupage = $request->groupage;
-        $donneurs->dateNaissance = $request->dateNaissance;
-        $donneurs->telephone = $request->telephone;
-        $donneurs->email = $request->email;
-        $donneurs->password = Hash::make($request->nom . '_2023');
+        $user = new User();
 
-        $donneurs->save();
-        // return redirect('/admine')->back()->with('success', 'Le donneur a été bien ajouté !!');
-        return redirect()->with('success', 'User created successfully!');
+        $user->nom = $request->name;
+        $user->prenom = $request->prenom;
+        $user->sexe = $request->sexe;
+        $user->groupage = $request->groupage;
+        $user->dateNaissance = $request->dateNaissance;
+        $user->telephone = $request->telephone;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->nom . '_2023');
+
+        $user->save();
+
+        $user->assignRole("user");
+
+        return redirect()->back()->with('success', 'Le donneur a été bien ajouté !!');
     }
 
     /**
@@ -57,25 +60,8 @@ class AdmineController extends Controller
      * Update the specified resource in storage.
      */
     public function update(Request $request)
-    { 
-        $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'prenom' => ['required', 'string', 'max:255'],
-            'telephone' => ['required', 'digits:10'],
-            'dateNaissance' => ['required', 'date'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-        ]);
-        $donneurs = user::findorfail($request->id);
-        $donneurs->nom = $request->nom;
-        $donneurs->prenom = $request->prenom;
-        $donneurs->sexe = $request->sexe;
-        $donneurs->groupage = $request->groupage;
-        $donneurs->dateNaissance = $request->dateNaissance;
-        $donneurs->telephone = $request->telephone;
-        $donneurs->email = $request->email;
-
-        $donneurs->save();
-        return redirect('/admine')->back()->with('success', 'Le donneur a été bien modifier !!');
+    {
+       //
     }
 
     /**
@@ -83,8 +69,13 @@ class AdmineController extends Controller
      */
     public function destroy(string $id)
     {
-        $donneurs = user::findorfail($id);
-        $donneurs->delete();
-        return redirect('/admine')->with('success', 'Le donneur a été bien supprimer avec succes !!');
+        User::destroy($id);
+        return redirect()->back()->with('success', 'Le donneur a été bien supprimé !!');
+    }
+
+    public function delete2($id){
+        $donneurs = User::where('isAdmin', '!=', true)->paginate(3);
+        User::destroy($id);
+        return redirect('/admine');
     }
 }

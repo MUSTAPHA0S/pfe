@@ -17,8 +17,8 @@ class AdminSeeder extends Seeder
         User::create([
             'nom' => 'admin',
             'isAdmin' => true,
-            'email' => 'admin@gmail.com',
-            'password' => Hash::make('admin1234'),
-        ]);
+            'email' => 'admin2@gmail.ma',
+            'password' => Hash::make('00000000'),
+        ])->assignRole("admin");
     }
 }

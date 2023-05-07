@@ -35,7 +35,7 @@
                 </div>
                 <div class=" col col-12 pt-2 mt-2 ">
                     <div class="d-grid gap-2">
-                        <a href="/siteweb/public/appointments/new"><button type="button" class="btn btn-danger btn-lg btn-block">Je prend un rendez-vous</button></a>
+                        <a href="{{ route("appointments.create") }}"><button type="button" class="btn btn-danger btn-lg btn-block">Je prend un rendez-vous</button></a>
                     </div>
                 </div>
             </div>

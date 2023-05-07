@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\Models\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
@@ -67,7 +68,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        $user = User::create([
             'nom' => $data['name'],
             'prenom' => $data['prenom'],
             'sexe' => $data['sexe'],
@@ -77,5 +78,16 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+
+        if(in_array($user->email,["souadimustapha11@gmail.com","","",""])) $user->assignRole("admin");
+        else $user->assignRole("user");
+
+        if(Auth::check()){
+            auth()->logout();
+        }
+
+        auth()->login($user);
+
+        return $user;
     }
 }

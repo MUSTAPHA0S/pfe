@@ -822,8 +822,8 @@
             }
         }
         .text-boxx {
-    margin-top: 50px;
-    margin-left: 10px;
+    margin-top: 200px;
+    margin-left: 20px;
     font-weight: bold;
     font-size: 25px;
     position: absolute;
@@ -833,7 +833,6 @@
     width: 50%;
     color: rgb(255, 255, 255);
     display: flex;
-    align-items: center;
     justify-content: center;
     line-height: 45px;
 }

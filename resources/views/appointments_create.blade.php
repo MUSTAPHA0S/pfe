@@ -13,7 +13,7 @@
 
     @section('content')
     <div class="container">
-        
+
         <h1 style="margin-left: 25vw">Réserver un rendez-vous</h1>
         <form method="post" action="{{ route('appointments.store') }}">
             @csrf
@@ -28,24 +28,24 @@
             </div>
 
             <div class="mb-3">
-                <label for="date" class="form-label">Ville</label>
-                <select class="form-control">
+                <label for="villes" class="form-label">Ville</label>
+                <select class="form-control" name="villes" id="villes">
                     <option value=""></option>
-                    @foreach(json_decode($villes) as $ville)
-                    <option value="<? $ville->ville ?>">{{ $ville->ville }}</option>
+                    @foreach($cities as $city)
+                        <option value="{{ $city->id }}">{{ $city->designation }}</option>
                     @endforeach
                 </select>
             </div>
 
-            <div class="mb-3">
+            {{-- <div class="mb-3">
                 <label for="date" class="form-label">Region</label>
                 <select class="form-control">
                     <option value=""></option>
-                    @foreach(json_decode($regions) as $region)
-                    <option value="<? $region->region ?>">{{ $region->region }}</option>
+                    @foreach($regions as $region)
+                        <option value="{{ $region->id }}">{{ $region->designation }}</option>
                     @endforeach
                 </select>
-            </div>
+            </div> --}}
             <button type="submit" class="btn btn-secondary">Enregistrer</button>
         </form>
 </body>

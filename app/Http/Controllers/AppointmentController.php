@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Appointment;
+use App\Models\City;
+use App\Models\Region;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 
@@ -18,23 +20,27 @@ class AppointmentController extends Controller
     public function create()
     {
         // Afficher le formulaire de réservation
-        return view('appointments_create', [
-            'villes' => file_get_contents(public_path('json/Villes.json')),
-            'regions' => file_get_contents(public_path('json/Regions.json')),
-        ]);
+        $cities = City::all();
+        $regions = Region::all();
+        return view('appointments_create', compact("cities","regions"));
     }
 
     public function store(Request $request)
     {
         // Créer un nouveau rendez-vous
+
+        $ville = City::whereid($request->villes)->with("region")->first();
+
         appointment::create([
             'nom' => $request->nom,
             'date' => $request->date,
+            "region" => $ville->region->designation,
+            "ville" => $ville->designation,
             // Ajouter d'autres champs à remplir selon votre modèle de données
         ]);
 
         // Sauvegarder le rendez-vous
-        
+
 
         // Rediriger vers la liste des rendez-vous avec un message de succès
         return redirect()->route('appointments.index')->with('success', 'Rendez-vous réservé avec succès !');

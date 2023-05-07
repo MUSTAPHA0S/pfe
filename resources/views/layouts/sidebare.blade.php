@@ -2,7 +2,7 @@
     <header>
         <div class="image-text">
             <span class="image">
-                <a class="navbar-brand" href="/siteweb/public">
+                <a class="navbar-brand" href="####">
                     <img class="logo" src="logo2.png" alt=".."></a> </span>
 
             <div class="text logo-text">
@@ -18,7 +18,7 @@
 
             <ul class="menu-links">
                 <li class="nav-link">
-                    <a href="/siteweb/public">
+                    <a href="welcome">
                         <i class='bx bx-home-alt icon'></i>
                         <span class="text nav-text">Acceuill</span>
                     </a>
@@ -30,16 +30,6 @@
                         <span class="text nav-text">Infos personnel</span>
                     </a>
                 </li>
-
-                <li class="nav-link">
-                    <a href="#">
-                        <i class='bx  icon'></i>
-                        <span class="text nav-text">Historique
-                        </span>
-                    </a>
-                </li>
-
-
             </ul>
         </div>
     </div>

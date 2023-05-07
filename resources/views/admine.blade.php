@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- Coding by CodingLab | www.codinglabweb.com -->
+
 <html lang="en">
 
 <head>
@@ -16,7 +16,7 @@
     <style>
 
 
-        
+
         .table {
             height: 20vw;
             margin-top: 100px;
@@ -25,24 +25,53 @@
 </head>
 
 <body>
+    <!-- Button trigger modal -->
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="staticBackdropLabel">Supprimer le donneur</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+      vouller vous vraiment supprimer ce donneur ?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+          <form id="deletedonneurForm" method="POST">
+            @csrf
+            @method('DELETE')
+            <input type="submit" value="Supprimer" class="btn btn-danger">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
     <nav class="sidebar close">
         <header>
             <div class="image-text">
                 <span class="image">
                     <a class="navbar-brand" href="/siteweb/public">
                         <img class="logo" src="logo2.png" alt=".."></a> </span>
-    
+
                 <div class="text logo-text">
                     <span class="name">Don de vie</span>
                 </div>
             </div>
-    
+
             <i class='bx bx-chevron-right toggle'></i>
         </header>
-    
+
         <div class="menu-bar">
             <div class="menu">
-    
+
                 <ul class="menu-links">
                     <li class="nav-link">
                         <a href="/siteweb/public">
@@ -50,7 +79,7 @@
                             <span class="text nav-text">Acceuill</span>
                         </a>
                     </li>
-    
+
                     <li class="nav-link">
                         <a href="admine">
                             <i class='bx  icon'></i>
@@ -61,19 +90,19 @@
             </div>
         </div>
     </nav>
-    
+
 
 
     @include('layouts.app')
 
 <div class="position-absolute top-50 start-50 translate-middle">
     <h1  style="margin-top:10px;margin-bottom: 30px;margin-left: 10vw">Gestion des donneurs</h1>
-    <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="margin-left: 20vw">
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" style="margin-left: 20vw">
         <i class="material-icons align-top "></i>
         Ajouter
       </button>
     <table class="table table-striped table-bordered">
-      <thead>   
+      <thead>
           <tr style="background-color: #435d7d">
             <th colspan="9" class="text-light" style="font-size: 25px">Liste des donneurs</th>
           </tr>
@@ -102,31 +131,29 @@
                   <a href="javascript:void(0)" onclick="editdonneur({{ $donneur->id }})">
                       <img src="edit.png" alt="edit" width="25">
                   </a>
-              </td>   
-              
-
-
-              <td class="text-center">
-                  <a href="javascript:void(0)" onclick="deletedonneur({{ $donneur->id }})">
-                      <img src="delete.png" alt="delete" width="25">
-                  </a>
               </td>
 
-
-
               <td class="text-center">
-                <a href="######">
+                  <a href="#" onclick="deletedonneur({{ $donneur->id }})">
+                    <button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+                      <img src="delete.png" alt="delete" width="25">
+                  </a>
+                </button>
+              </td>
+              {{-- <td class="text-center">
+                <a href="######"><button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
                     <img src="delete.png" alt="delete" width="25">
+                  </button>
+
                 </a>
-            </td>
+            </td> --}}
           </tr>
         @endforeach
       </tbody>
     </table>
 
 </div>
-                                                <!-- Modal -->
-
+  <!-- Modal -->
   <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -135,21 +162,21 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            
+
                 <div class="row justify-content-center">
                     <div class="col-md-8">
-                        
-            
+
+
                             <div class="card-body">
                                 <form method="POST" action="{{ route('admine.store') }}">
                                     @csrf
-            
+
                                     <div class="row mb-3">
                                         <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Nom') }}</label>
-            
+
                                         <div class="col-md-6">
                                             <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
-            
+
                                             @error('name')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -159,10 +186,10 @@
                                     </div>
                                     <div class="row mb-3">
                                         <label for="prenom" class="col-md-4 col-form-label text-md-end">{{ __('Prenom') }}</label>
-            
+
                                         <div class="col-md-6">
                                             <input id="prenom" type="text" class="form-control @error('prenom') is-invalid @enderror" name="prenom" value="{{ old('prenom') }}" required >
-            
+
                                             @error('prenom')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -172,7 +199,7 @@
                                     </div>
                                     <div class="row mb-3">
                                         <label for="sexe" class="col-md-4 col-form-label text-md-end">{{ __('sexe') }}</label>
-            
+
                                         <div class="col-md-6">
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio" name="sexe"  value="Homme">
@@ -189,10 +216,10 @@
                                             @enderror
                                         </div>
                                     </div>
-            
+
                                     <div class="row mb-3">
                                         <label for="groupage" class="col-md-4 col-form-label text-md-end">{{ __('groupage sanguin') }}</label>
-            
+
                                         <div class="col-md-6">
                                             <div class="form-check form-check-inline">
                                                 <input class="form-check-input" type="radio" name="groupage"  value="A+">
@@ -233,13 +260,13 @@
                                             @enderror
                                         </div>
                                     </div>
-            
+
                                     <div class="row mb-3">
                                         <label for="telephone" class="col-md-4 col-form-label text-md-end">{{ __('Telephone') }}</label>
-            
+
                                         <div class="col-md-6">
                                             <input id="telephone" type="text" class="form-control @error('telephone') is-invalid @enderror" name="telephone" value="{{ old('telephone') }}" required autocomplete="telephone">
-            
+
                                             @error('telephone')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -247,13 +274,13 @@
                                             @enderror
                                         </div>
                                     </div>
-            
+
                                     <div class="row mb-3">
                                         <label for="dateNaissance" class="col-md-4 col-form-label text-md-end">{{ __('Date de naissance') }}</label>
-            
+
                                         <div class="col-md-6">
                                             <input id="dateNaissance" type="date" class="form-control @error('dateNaissance') is-invalid @enderror" name="dateNaissance" value="{{ old('dateNaissance') }}" required autocomplete="dateNaissance">
-            
+
                                             @error('dateNaissance')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -263,10 +290,10 @@
                                     </div>
                                     <div class="row mb-3">
                                         <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Address E-Mail') }}</label>
-            
+
                                         <div class="col-md-6">
                                             <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
-            
+
                                             @error('email')
                                                 <span class="invalid-feedback" role="alert">
                                                     <strong>{{ $message }}</strong>
@@ -274,23 +301,23 @@
                                             @enderror
                                         </div>
                                     </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
+                                        <button type="submit" class="btn btn-primary">Ajouter donneur</button>
+                                      </div>
                                 </form>
                             </div>
                     </div>
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</button>
-          <button type="submit" href="/store/{{$donneur->id}}" class="btn btn-primary">Ajouter donneur</button>
-        </div>
+
       </div>
     </div>
   </div>
 
-  
 
-    
 
-    
+
+
 </body>
 <script>
     const body = document.querySelector('body'),
@@ -318,21 +345,21 @@
         }
     });
 
-    <script>
-  function editdonneur(id){
+    function editdonneur(id){
     $('#editdonneurModal').modal('toggle');
-    $.get('/admine/' + id, function(donneur){
-      $('#nom').val(donneur.nom);
-      $('#prenom').val(donneur.prenom);
-      $('#telephone').val(donneur.telephone);
-      $('#dateNaissance').val(donneur.dateNaissance);
-      $('#email').val(donneur.email);
-      $('#id').val(donneur.id);
+    $.get('/admin/' + id, function(user){
+      $('#nom').val(user.nom);
+      $('#prenom').val(user.prenom);
+      $('#telephone').val(user.telephone);
+      $('#dateNaissance').val(user.dateNaissance);
+      $('#email').val(user.email);
+      $('#id').val(user.id);
     });
   }
   function deletedonneur(id){
     $('#deletedonneurModal').modal('toggle');
-    $('#deletedonneurForm').attr('action', '/admine/' + id);
+    $('#deletedonneurForm').attr('action', '/admin/' + id);
   }
 </script>
+
 </html>
