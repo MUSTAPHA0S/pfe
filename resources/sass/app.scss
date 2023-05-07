@@ -6,3 +6,8 @@
 
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
+
+
+ol, ul {
+    padding-left: 0rem !important;
+}

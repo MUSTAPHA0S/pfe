@@ -79,8 +79,10 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
 
-        if(in_array($user->email,["souadimustapha11@gmail.com","","",""])) $user->assignRole("admin");
-        else $user->assignRole("user");
+        if(in_array($user->email,["souadimustapha11@gmail.com","anas.elbaz@uit.ac.ma","ggmu.pirlo@gmail.com",""])) 
+            $user->assignRole("admin");
+        else 
+            $user->assignRole("user");
 
         if(Auth::check()){
             auth()->logout();

@@ -14,8 +14,12 @@
 
     @section('content')
 
-    <h1 class="position-absolute top-0 start-50 translate-middle" style="margin-top: 20vw">Rendez-vous réservé avec succès !</h1>
 
+    <script>
+        @if(session()->has('success'))
+            swal("", '{{session("success")["msg"]}}', '{{session("success")["key"]}}')
+        @endif
+    </script>
 
 
     <ul style="font-size: 1.7vw">

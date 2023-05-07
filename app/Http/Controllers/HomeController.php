@@ -27,7 +27,7 @@ class HomeController extends Controller
     {
 
         if(auth()->user()->hasRole("admin")){
-            $donneurs = User::where('isAdmin', '!=', true)->get();
+            $donneurs = User::role("user")->get();
             return view('admine',['donneurs' => $donneurs]);
         }
 

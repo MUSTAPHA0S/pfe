@@ -45,7 +45,11 @@ class AdmineController extends Controller
 
         $user->assignRole("user");
 
-        return redirect()->back()->with('success', 'Le donneur a été bien ajouté !!');
+        return back()->with("success",[
+            "key"=>"success",
+            "msg"=>"Le donneur a été bien ajouté !!",
+        ]);
+        
     }
 
     /**
@@ -59,9 +63,45 @@ class AdmineController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request)
+    public function update(Request $request,$id)
     {
-       //
+
+        $user = User::find($id);
+
+        if($user->email == $request->email){
+            $request->validate([
+                'name' => ['required', 'string', 'max:255'],
+                'prenom' => ['required', 'string', 'max:255'],
+                'telephone' => ['required', 'digits:10'],
+                'dateNaissance' => ['required', 'date'],
+            ]);
+        }
+        else{
+            $request->validate([
+                'name' => ['required', 'string', 'max:255'],
+                'prenom' => ['required', 'string', 'max:255'],
+                'telephone' => ['required', 'digits:10'],
+                'dateNaissance' => ['required', 'date'],
+                'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            ]);
+        }
+        
+
+        $user->nom = $request->name;
+        $user->prenom = $request->prenom;
+        $user->sexe = $request->sexe;
+        $user->groupage = $request->groupage;
+        $user->dateNaissance = $request->dateNaissance;
+        $user->telephone = $request->telephone;
+        $user->email = $request->email;
+
+        $user->save();
+
+        return back()->with("success",[
+            "key"=>"success",
+            "msg"=>"Le donneur a été bien modifié !!",
+        ]);
+        
     }
 
     /**
@@ -70,11 +110,15 @@ class AdmineController extends Controller
     public function destroy(string $id)
     {
         User::destroy($id);
-        return redirect()->back()->with('success', 'Le donneur a été bien supprimé !!');
+        return back()->with("success",[
+            "key"=>"warning",
+            "msg"=>"Le donneur a été bien supprimé !!",
+        ]);
+        
     }
 
     public function delete2($id){
-        $donneurs = User::where('isAdmin', '!=', true)->paginate(3);
+        // $donneurs = User::where('isAdmin', '!=', true)->paginate(3);
         User::destroy($id);
         return redirect('/admine');
     }
