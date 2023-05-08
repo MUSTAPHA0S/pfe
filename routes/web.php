@@ -45,16 +45,11 @@ Route::middleware(['auth','role:user'])->group(function () {
     Route::put('/appointments/{id}', [App\Http\Controllers\AppointmentController::class, 'update'])->name('appointments.update');
     Route::delete('/appointments/{id}', [App\Http\Controllers\AppointmentController::class, 'delete'])->name('appointments.delete');
 
-    Route::get('/quiz', function () {
-        return view('quiz');
-    });
-
     Route::get('/profile', function () {
         return view('home', ['user' => Auth::user()]);
     });
 
 
-    //
 });
 
 

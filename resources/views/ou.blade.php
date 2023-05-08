@@ -41,6 +41,20 @@
             </div>
         </div>
     </div>
+
+    <div class="row">
+        <div class="fw-bolder col col-sm-12 col-12  col-lg-6  "  style="font-size: 1.8vw">
+            <ul class="list">
+                <li>Les centres de collecte de sang : Il existe des centres de collecte de sang dans de nombreuses villes et régions au Maroc, ils sont des installations médicales spécialement conçues pour la collecte de sang. </li>
+                <li>Les unités mobiles de collecte de sang : ils se déplacent dans différentes communautés pour collecter le sang des donneurs. Ces unités sont souvent présentes lors d'événements publics, tels que les foires, les festivals ou les événements sportifs</li>
+                <li>Les hôpitaux et les cliniques :  sont souvent des lieux de collecte de sang. Les donneurs peuvent prendre rendez-vous à l'avance pour donner leur sang lors de leur visite médicale. </br> Pour trouver un centre de collecte de sang ou une unité mobile près de chez vous, vous pouvez consulter le site  pour trouver des informations sur les lieux de collecte de sang et les horaires. Il est important de rappeler que chaque organisme de collecte de sang a ses propres critères de don, donc assurez-vous de vérifier si vous êtes éligible avant de donner votre sang.</li>
+            </ul>
+        </div>
+        <div class="text-center fw-bolder col col-sm-12 col-12 col-lg-6 pt-auto my-auto">
+            <img src="image10.jpg" class="img-fluid" alt="...">
+        </div>
+    </div>
+
     <h1 class="question">
         Vos questions, nos réponses
     </h1>

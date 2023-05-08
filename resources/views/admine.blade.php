@@ -27,10 +27,6 @@
 </head>
 
 <body>
-    <!-- Button trigger modal -->
-
-
-  <!-- Modal -->
 @foreach ($donneurs as $donneur)
     {{-- delete --}}
   <div class="modal fade" id="_{{$donneur->id}}" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
@@ -241,20 +237,13 @@
                       <img src="delete.png" alt="delete" width="25" height="25">
                   </a>
               </td>
-              {{-- <td class="text-center">
-                <a href="######"><button type="button" class="btn" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                    <img src="delete.png" alt="delete" width="25">
-                  </button>
-
-                </a>
-            </td> --}}
           </tr>
         @endforeach
       </tbody>
     </table>
 
 </div>
-  <!-- Modal -->
+  <!-- Ajouter -->
   <div class="modal fade" id="addnew" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -417,7 +406,7 @@
 
 
 
-  
+
 
 
 </body>

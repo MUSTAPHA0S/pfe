@@ -43,7 +43,7 @@ class AppointmentController extends Controller
 
 
         // Rediriger vers la liste des rendez-vous avec un message de succès
-        return redirect("/")->with("success",[
+        return redirect("/appointments")->with("success",[
             "key"=>"success",
             "msg"=>"Merci ".$request->nom.", votre Rendez-vous réservé avec succès sous la date: ".$request->date. ". à: ".$ville->designation,
         ]);

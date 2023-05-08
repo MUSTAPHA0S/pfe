@@ -846,7 +846,6 @@
     <video autoplay muted loop plays-inline class="background-vid">
         <source src="video1.mp4" type="video/mp4">
     </video>
-    {{-- <div class="overlay"></div> --}}
 
     <p class="text-boxx"> Le don du sang est un acte qui peut sauver des vies. Chaque année, des milliers de personnes ont besoin d’une transfusion sanguine pour survivre, que ce soit suite à une maladie, un accident ou une intervention chirurgicale. Si vous êtes en bonne santé et répondez aux critères médicaux, prenez le temps de donner votre sang, c’est un cadeau inestimable que vous pouvez offrir à ceux qui ont besoin. Ensemble, nous pouvons faire la différence et sauver des vies.
     </p>
